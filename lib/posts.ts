@@ -4,7 +4,7 @@ import matter from 'gray-matter'
 import { remark } from 'remark'
 import html from 'remark-html'
 
-const postsDirectory = path.join(process.cwd(), 'blogposts')
+const postsDirectory = path.join(process.cwd(), 'staticData/blog_posts')
 
 export function getSortedPostsData() {
     // Get file names under /posts
@@ -25,7 +25,6 @@ export function getSortedPostsData() {
             title: matterResult.data.title,
             date: matterResult.data.date,
         }
-
         // Combine the data with the id
         return blogPost
     });
