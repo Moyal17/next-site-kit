@@ -1,5 +1,6 @@
 import './(site)/globals.css'
 import SiteContainer from "@/app/components/SiteContainer";
+import "tw-elements/dist/css/tw-elements.min.css";
 
 export const metadata = {
   title: "Dave's Blog",

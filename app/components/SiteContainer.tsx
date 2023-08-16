@@ -1,12 +1,11 @@
 "use client"
-import { useRef } from "react";
 import Footer from "@/app/components/shared/Footer";
 import Header from "@/app/components/shared/Header";
 
 interface SiteContainerProps {
   children: React.ReactNode
 }
-const Base: React.FC<SiteContainerProps> = ({
+const SiteContainer: React.FC<SiteContainerProps> = ({
   children,...props
 }) => {
   return (
@@ -19,4 +18,4 @@ const Base: React.FC<SiteContainerProps> = ({
   );
 };
 
-export default Base;
+export default SiteContainer;

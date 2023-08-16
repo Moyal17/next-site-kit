@@ -47,16 +47,12 @@ const Header = () => {
         className={`header flex-row ${sticky && "header-sticky"} ${direction === 1 && "unpinned"}`} ref={headerRef}>
         <nav className="flex justify-around py-4 bg-white/80 backdrop-blur-md shadow-md w-full fixed top-0 left-0 right-0 z-10">
           <div className="flex items-center">
-            <a className="cursor-pointer">
-              <h3 className="text-2xl font-medium">
-                <Logo src={logo} />
-              </h3>
-            </a>
+            <Logo src={logo} />
           </div>
           <div className="items-center hidden space-x-8 lg:flex">
             {main.map((menu, i) => (
               <span key={`menu-${i}`} className="flex text-gray-600 cursor-pointer transition-colors duration-300">
-                <Link href={menu.url} className={`nav-link block ${router.asPath === menu.url && "active"}`}>
+                <Link href={menu.url} className={`nav-link block`}>
                   {menu.name}
                 </Link>
               </span>
