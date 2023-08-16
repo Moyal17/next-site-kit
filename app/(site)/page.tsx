@@ -46,7 +46,7 @@ export default function Home() {
         },
       });
 
-      const position = (banner.offsetHeight - bannerBg.offsetHeight) * 0.4;
+      const position = (banner.offsetHeight - bannerBg.offsetHeight) * 0.1;
       parallaxTl
         .fromTo(bannerBg, {y: 0}, {y: -position}).fromTo(bannerContent, {y: 0}, {y: position}, "<")
         .fromTo(".banner-bg .circle", {y: 0,}, {y: position,}, "<");
@@ -56,7 +56,6 @@ export default function Home() {
 
   return (
     <main className="px-6 mx-auto">
-      <div className="h-[180px]" />
       <section className="section banner pt-0">
         <div className="container-xl">
           <div className="relative">
@@ -124,11 +123,6 @@ export default function Home() {
                     <h1 className="mb-8 banner-title opacity-0">
                       Andromeda is the most intuitive way to prototype Designs
                     </h1>
-                    <button
-                      type="button"
-                      className="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]">
-                      Button
-                    </button>
                     <div className="banner-btn opacity-0">
                       <button className="btn btn-primary">
                         Get Premium Version
