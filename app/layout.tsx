@@ -1,4 +1,5 @@
 import './(site)/globals.css'
+import SiteContainer from "@/app/components/SiteContainer";
 
 export const metadata = {
   title: "Dave's Blog",
@@ -9,7 +10,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
-        {children}
+        <SiteContainer>
+          {children}
+        </SiteContainer>
       </body>
     </html>
   )
