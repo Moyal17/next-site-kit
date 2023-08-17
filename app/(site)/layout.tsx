@@ -1,3 +1,5 @@
+import "@/styles/style.scss";
+import SiteContainer from "@/app/components/SiteContainer";
 // import "tw-elements/dist/css/tw-elements.min.css";
 
 export const metadata = {
@@ -7,10 +9,10 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body>
-        {children}
-      </body>
-    </html>
+    <>
+        <SiteContainer>
+          {children}
+        </SiteContainer>
+    </>
   )
 }

@@ -19,7 +19,6 @@ const Benefits = (props) => {
               height="auto"
               alt="Benefits"
               className={"object-cover"}
-              placeholder="blur"
               blurDataURL={data.image.src}
             />
           </div>

@@ -50,7 +50,7 @@ interface HomeProps {
   pageDetails: any
 }
 
-const Home: React.FC<HomeProps> = ({ pageDetails }) => {
+const HomePageContent: React.FC<HomeProps> = ({ pageDetails }) => {
   const paginationRef = useRef(null);
   const testimonialPaginationRef = useRef(null);
   const { data } = pageDetails;
@@ -382,7 +382,7 @@ const Home: React.FC<HomeProps> = ({ pageDetails }) => {
               <div className="row items-center justify-center">
                 <div className="hidden lg:col-3 xl:col-4 lg:block">
                   <ImageFallback
-                    src="/images/testimonials-01.png"
+                    src="https://github-assets-site.s3.eu-central-1.amazonaws.com/multi-page-site/testimonials-01.png"
                     width={455}
                     height={522}
                     alt="testimonials"
@@ -439,7 +439,7 @@ const Home: React.FC<HomeProps> = ({ pageDetails }) => {
                 </div>
                 <div className="hidden lg:col-3 xl:col-4 lg:block">
                   <ImageFallback
-                    src="/images/testimonials-02.png"
+                    src="https://github-assets-site.s3.eu-central-1.amazonaws.com/multi-page-site/testimonials-02.png"
                     width={455}
                     height={522}
                     alt="testimonials"
@@ -457,4 +457,4 @@ const Home: React.FC<HomeProps> = ({ pageDetails }) => {
 }
 
 
-export default Home;
+export default HomePageContent;

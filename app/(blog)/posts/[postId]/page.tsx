@@ -1,5 +1,5 @@
 import getFormattedDate from "@/lib/getFormattedDate"
-import { getSortedPostsData, getPostData } from "@/lib/posts"
+import { getSortedPostsData, getPostData } from "@/actions/posts"
 import { notFound } from "next/navigation"
 import Link from "next/link"
 

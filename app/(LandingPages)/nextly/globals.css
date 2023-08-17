@@ -6,17 +6,11 @@ html,
 body,
 :root {
     height: 100%;
-    color-scheme: inherit;
+    color-scheme: light;
 }
 
 html,
 body {
     color: #000;
     background: #fff;
-}
-
-[data-theme='dark'],
-[data-theme='dark'] body {
-    color: #fff;
-    background: #000;
 }

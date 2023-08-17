@@ -1,7 +1,7 @@
-import {getPageData} from "@/lib/pages";
-import HomePage from './home'
+import {getPageData} from "@/actions/pages";
+import HomePage from './homePageContent'
 
-export default async function Page() {
+export default async function Home() {
   // Fetch data directly in a Server Component
   const homepage = await getPageData('home')
   // Forward fetched data to your Client Component
