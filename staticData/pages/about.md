@@ -1,20 +1,93 @@
 ---
-uri: about
-title: About me
-description: Lorem ipsum dolor sit amet, consectetur
-image: https://img.freepik.com/free-photo/abstract-multi-colored-wave-pattern-shiny-flowing-modern-generated-by-ai_188544-15588.jpg
-images:
-  - https://img.freepik.com/free-photo/abstract-multi-colored-wave-pattern-shiny-flowing-modern-generated-by-ai_188544-15588.jpg
-  - https://img.freepik.com/free-photo/abstract-multi-colored-wave-pattern-shiny-flowing-modern-generated-by-ai_188544-15588.jpg
-  - https://img.freepik.com/free-photo/abstract-multi-colored-wave-pattern-shiny-flowing-modern-generated-by-ai_188544-15588.jpg
-names: ['Alex', 'Ben', 'Shir', 'Dor']
+title: "About"
+layout: about
+draft: false
+
+## about us
+about_us:
+  subtitle: WHO WE ARE
+  title: Hello, We’re Andromeda Here For Your Help
+  content: Your online Health & Fitness companion that offers free assistance on its Facebook Group and provides quality paid guided personal training packages by and through website. We are the first ever, online manifesto in Bangladesh to make place you will select when you think of getting fit
+  image: https://github-assets-site.s3.eu-central-1.amazonaws.com/multi-page-site/about/01.jpg
+
+## our works
+works:
+  subtitle: OUR WORKS
+  title: What We Do
+  list:
+    - title: Building A New Class
+      content: Decade of engineering under his belt, Jeremie is responsible for technical infrastructure and feature development. In Flow, wherever things just work is understanding developing complex systems
+    - title: Design For Anyone
+      content: Decade of engineering under his belt, Jeremie is responsible for technical infrastructure and feature development. In Flow, wherever things just work is understanding developing complex systems
+    - title: Creative Flair Design
+      content: Decade of engineering under his belt, Jeremie is responsible for technical infrastructure and feature development. In Flow, wherever things just work is understanding developing complex systems
+    - title: Building Products
+      content: Decade of engineering under his belt, Jeremie is responsible for technical infrastructure and feature development. In Flow, wherever things just work is understanding developing complex systems
+
+## our mission
+mission:
+  subtitle: OUR MISSION
+  title: Main Vision And Mission Of Our Company
+  content: We were freelance designers and developers, constantly finding ourselve deep vague feedback. leaving a notes from the sticky note piece .
+  image: https://github-assets-site.s3.eu-central-1.amazonaws.com/multi-page-site/about/02.jpg
+
+## short video
+video:
+  subtitle: A SHORT VIDEO
+  title: You Take Care Of The Payments, We Take Care Of The Rest.
+  description: Protect your design vision and leave nothing up to interpretation with interaction recipes. Quickly share and access all your team members interactions by using libraries, ensuring consistcy throughout the.
+  video_id: dyZcRRWiuuw
+  thumbnail: https://github-assets-site.s3.eu-central-1.amazonaws.com/multi-page-site/about/video-popup-2.jpg
+
+## clients
+clients:
+  subtitle: OUR CLIENTS
+  title: Trusted By Thousands Companies
+  brands:
+    - https://github-assets-site.s3.eu-central-1.amazonaws.com/multi-page-site/brands/01-colored.png
+    - https://github-assets-site.s3.eu-central-1.amazonaws.com/multi-page-site/brands/02-colored.png
+    - https://github-assets-site.s3.eu-central-1.amazonaws.com/multi-page-site/brands/03-colored.png
+    - https://github-assets-site.s3.eu-central-1.amazonaws.com/multi-page-site/brands/04-colored.png
+    - https://github-assets-site.s3.eu-central-1.amazonaws.com/multi-page-site/brands/05-colored.png
+    - https://github-assets-site.s3.eu-central-1.amazonaws.com/multi-page-site/brands/06-colored.png
+    - https://github-assets-site.s3.eu-central-1.amazonaws.com/multi-page-site/brands/04-colored.png
+    - https://github-assets-site.s3.eu-central-1.amazonaws.com/multi-page-site/brands/05-colored.png
+    - https://github-assets-site.s3.eu-central-1.amazonaws.com/multi-page-site/brands/06-colored.png
+
+
+## members
+our_member:
+  subtitle: OUR MEMBERS
+  title: The People Behind
+  content: We were freelance designers and developers, constantly finding </br> ourselves deep in vague feedback. This made every client and team
+  list:
+    - name: Valentin Staykov
+      field: Operations
+      image: https://github-assets-site.s3.eu-central-1.amazonaws.com/multi-page-site/about/team/01.jpg
+    - name: Bukiakta Bansalo
+      field: Product
+      image: https://github-assets-site.s3.eu-central-1.amazonaws.com/multi-page-site/about/team/02.jpg
+    - name: Ortrin Okaster
+      field: Engineering
+      image: https://github-assets-site.s3.eu-central-1.amazonaws.com/multi-page-site/about/team/03.jpg
+
+## office
+our_office:
+  subtitle: OUR OFFICES
+  title: Made With Love Of Around The </br> World With Many Offices
+  content: We were freelance designers and developers, constantly finding </br> ourselves deep in vague feedback. This made every client and team
+  countries:
+    - flag: https://github-assets-site.s3.eu-central-1.amazonaws.com/multi-page-site/about/flags/us.png
+      name: NewYork, USA
+      location: 219 Bald Hill Drive Oakland Gardens, NY 11364
+    - flag: https://github-assets-site.s3.eu-central-1.amazonaws.com/multi-page-site/about/flags/au.png
+      name: Australia, Perth
+      location: Flat 23 80 Anthony Circlet Port Guiseppe, TAS 2691
+    - flag:  https://github-assets-site.s3.eu-central-1.amazonaws.com/multi-page-site/about/flags/germany.png
+      name: Berlin, Germany
+      location: Jl Raya Dewi Sartika Ged Harapan Masa, Br Germeny
+    - flag:  https://github-assets-site.s3.eu-central-1.amazonaws.com/multi-page-site/about/flags/china.png
+      name: China, Wohan
+      location: 1hao Wen Ti Huo Dong Zhong Xin 1ceng Jian Xing
+
 ---
-<h1>Hello world!</h1>
-<h3>Lorem ipsum dolor sit amet, consectetur</h3>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc at aliquam quam, sed luctus turpis. Praesent a volutpat arcu. Praesent quis est et leo malesuada maximus nec et nibh. Phasellus consequat ac dui eget elementum. Aenean sit amet dolor sed enim egestas condimentum. Duis risus nulla, rutrum id nunc eu, consequat pulvinar velit. Integer augue turpis, aliquet id magna id, ultricies aliquam neque. Integer tempor sodales libero, mollis consequat eros lobortis a. Proin vel sagittis ante, eu elementum nibh. Donec sollicitudin pharetra elit, quis rutrum sem laoreet a. Suspendisse sed rutrum lectus. Vestibulum imperdiet, arcu ut euismod facilisis, lectus leo commodo leo, et gravida risus nunc in leo. Ut in quam quam.
-
-Etiam pharetra tincidunt tempus. Aliquam condimentum pellentesque rutrum. Ut eleifend nulla euismod massa vulputate rhoncus. Curabitur eleifend velit et elementum hendrerit. Vestibulum auctor mi nisi. Integer et malesuada eros, in fringilla ante. Aliquam quis libero luctus, ultrices leo vel, accumsan massa. Etiam posuere lectus sem, a rhoncus est rhoncus aliquet. Nulla feugiat diam dignissim dolor pretium, ut facilisis massa blandit. Etiam id lobortis quam. Integer finibus pellentesque metus ac rutrum. Aenean eu justo at elit consequat congue. Quisque est augue, rutrum sit amet orci ut, fringilla ullamcorper erat. Fusce aliquam venenatis elit sed ultricies.
-
-Nullam et nulla iaculis, pulvinar risus ac, porta elit. Pellentesque posuere odio est, eu auctor erat ullamcorper eu. Maecenas efficitur nisl at sodales aliquam. Nunc tincidunt eget erat non faucibus. Vestibulum rhoncus aliquam massa, non mollis ante facilisis quis. Fusce tristique ante in pellentesque facilisis. Nulla facilisi. Duis eget ante ut tellus ullamcorper vestibulum id in ante. Mauris vestibulum, nulla vitae dignissim gravida, mauris purus sollicitudin ligula, aliquet sodales ipsum ante at elit. Cras posuere consequat imperdiet.
-</p>

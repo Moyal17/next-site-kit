@@ -19,7 +19,7 @@ const Cta = () => {
           </div>
           <div className="bg-theme animated-bg absolute top-0 left-0 w-full after:hidden">
             <ImageFallback
-              src="/images/wave.svg"
+              src="https://github-assets-site.s3.eu-central-1.amazonaws.com/multi-page-site/wave.svg"
               fill={true}
               sizes="100vw"
               alt="bg wave"

@@ -5,10 +5,10 @@ import {gsap} from "gsap";
 import {FiLock, FiWind, FiShield, FiLink} from 'react-icons/fi'
 import {Autoplay, Pagination} from "swiper";
 import {Swiper, SwiperSlide} from "swiper/react";
-import Circle from "./components/Circle";
+import Circle from "../components/Circle";
 import ImageFallback from "@/app/components/ImageFallback";
-import Cta from "./components/Cta";
-import VideoPopup from "./components/VideoPopup";
+import Cta from "../components/Cta";
+import VideoPopup from "../components/VideoPopup";
 import { TbQuote } from "react-icons/tb";
 import {markdownify} from "@/lib/utils/textConverter";
 import config from "@/app/config/config.json";
