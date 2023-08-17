@@ -163,7 +163,7 @@ const Home: React.FC<HomeProps> = ({ pageDetails }) => {
                   <div className="col-10">
                     <ImageFallback
                       className="banner-img opacity-0"
-                      src={'/images/banner-app.png'}
+                      src={data.banner.image}
                       width={1170}
                       height={666}
                       priority={true}

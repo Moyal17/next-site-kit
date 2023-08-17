@@ -17,7 +17,6 @@ const Hero = () => {
               template for startups and indie projects. Its built with
               Next.js & TailwindCSS. And its completely open-source.
             </p>
-
             <div className="flex flex-col items-start space-y-3 sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row">
               <a
                 href="https://web3templates.com/templates/nextly-landing-page-template-for-startups"
@@ -50,7 +49,7 @@ const Hero = () => {
         <div className="flex items-center justify-center w-full lg:w-1/2">
           <div className="">
             <Image
-              src={heroImg}
+              src='https://github-assets-site.s3.eu-central-1.amazonaws.com/landing-page-example/hero.png'
               width="616"
               height="617"
               className={"object-cover"}

@@ -8,6 +8,11 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
+  images: {
+    domains: [
+      "github-assets-site.s3.eu-central-1.amazonaws.com" // images domain
+    ]
+  }
 }
 
 module.exports = nextConfig
