@@ -6,10 +6,9 @@ export async function getPageData(id: string) {
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     // Use gray-matter to parse the post metadata section
     const matterResult = matter(fileContents);
-    const blogPostWithHTML: Response = {
+    return {
         id,
         title: matterResult.data.title,
-        data: matterResult.data,
+        data: matterResult.data
     }
-    return blogPostWithHTML
 }

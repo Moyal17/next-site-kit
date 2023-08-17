@@ -1,7 +1,7 @@
 "use client"
 import {useEffect, useRef} from "react";
 import Link from "next/link";
-import { gsap } from "@/lib/gsap";
+import {gsap} from "gsap";
 import {FiLock, FiWind, FiShield, FiLink} from 'react-icons/fi'
 import {Autoplay, Pagination} from "swiper";
 import {Swiper, SwiperSlide} from "swiper/react";
@@ -13,17 +13,6 @@ import { TbQuote } from "react-icons/tb";
 import {markdownify} from "@/lib/utils/textConverter";
 import config from "@/app/config/config.json";
 
-const brands = [
-  '/images/brands/01-colored.png',
-  '/images/brands/02-colored.png',
-  '/images/brands/03-colored.png',
-  '/images/brands/04-colored.png',
-  '/images/brands/05-colored.png',
-  '/images/brands/06-colored.png',
-  '/images/brands/01-colored.png',
-  '/images/brands/02-colored.png',
-  '/images/brands/03-colored.png'
-];
 const featuresList = [
   {
     icon: <FiLock size={24}/>, // feather icon: 'https://feathericons.com/'
@@ -56,76 +45,22 @@ const featuresList = [
     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque enim id diam ornare volutpat in sagitis, aliquet. Arcu cursus"
   }
 ]
-const testimonial = [
-  {
-    author: 'David Cameron',
-    avatar: '/images/user-img/01.jpg',
-    profession: 'CEO, Nexuspay',
-    content: 'Lorem ipsum dolor amet, conseetur adipiscing elit. Ornare quam porta arcu congue felis volutpat. Vitae lectudbfs pellentesque vitae dolor'
-  },
-  {
-    author: 'David Cameron',
-    avatar: '/images/user-img/02.jpg',
-    profession: 'CEO, Nexuspay',
-    content: 'Lorem ipsum dolor amet, conseetur adipiscing elit. Ornare quam porta arcu congue felis volutpat. Vitae lectudbfs pellentesque vitae dolor'
-  },
-  {
-    author: 'David Cameron',
-    avatar: '/images/user-img/03.jpg',
-    profession: 'CEO, Nexuspay',
-    content: 'Lorem ipsum dolor amet, conseetur adipiscing elit. Ornare quam porta arcu congue felis volutpat. Vitae lectudbfs pellentesque vitae dolor'
-  },
-  {
-    author: 'David Cameron',
-    avatar: '/images/user-img/04.jpg',
-    profession: 'CEO, Nexuspay',
-    content: 'Lorem ipsum dolor amet, conseetur adipiscing elit. Ornare quam porta arcu congue felis volutpat. Vitae lectudbfs pellentesque vitae dolor'
-  },
-  {
-    author: 'David Cameron',
-    avatar: '/images/user-img/05.jpg',
-    profession: 'CEO, Nexuspay',
-    content: 'Lorem ipsum dolor amet, conseetur adipiscing elit. Ornare quam porta arcu congue felis volutpat. Vitae lectudbfs pellentesque vitae dolor'
-  },
-  {
-    author: 'David Cameron',
-    avatar: '/images/user-img/06.jpg',
-    profession: 'CEO, Nexuspay',
-    content: 'Lorem ipsum dolor amet, conseetur adipiscing elit. Ornare quam porta arcu congue felis volutpat. Vitae lectudbfs pellentesque vitae dolor'
-  },
-  {
-    author: 'David Cameron',
-    avatar: '/images/user-img/07.jpg',
-    profession: 'CEO, Nexuspay',
-    content: 'Lorem ipsum dolor amet, conseetur adipiscing elit. Ornare quam porta arcu congue felis volutpat. Vitae lectudbfs pellentesque vitae dolor'
-  },
-  {
-    author: 'David Cameron',
-    avatar: '/images/user-img/08.jpg',
-    profession: 'CEO, Nexuspay',
-    content: 'Lorem ipsum dolor amet, conseetur adipiscing elit. Ornare quam porta arcu congue felis volutpat. Vitae lectudbfs pellentesque vitae dolor'
-  }
-]
 
 interface HomeProps {
-  pageDetails: {
-    id: string,
-    data: {
-      [key: string]: any
-    }
-  }
+  pageDetails: any
 }
 
-const Home: React.FC<HomeProps> = ({ pageDetails: { data, id } }) => {
+const Home: React.FC<HomeProps> = ({ pageDetails }) => {
   const paginationRef = useRef(null);
   const testimonialPaginationRef = useRef(null);
+  const { data } = pageDetails;
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const banner = document.querySelector(".banner") as Element;
-      const bannerBg = document.querySelector(".banner-bg") as Element;
-      const bannerContent = document.querySelector(".banner-content") as Element;
-      const header = document.querySelector(".header") as Element;
+      const banner = document.querySelector<HTMLElement>(".banner");
+      const bannerBg = document.querySelector<HTMLElement>(".banner-bg");
+      const bannerContent = document.querySelector<HTMLElement>(".banner-content");
+      const header = document.querySelector<HTMLElement>(".header");
       const tl = gsap.timeline();
 
       tl.fromTo(".banner-title", {y: 20, opacity: 0}, {y: 0, opacity: 1, duration: 0.5, delay: 0.5})
@@ -137,17 +72,20 @@ const Home: React.FC<HomeProps> = ({ pageDetails: { data, id } }) => {
         ease: "none",
         scrollTrigger: {
           trigger: banner,
-          start: () => `top ${header.clientHeight}`,
+          start: () => `top ${header?.clientHeight || '115'}`,
           scrub: true,
         },
       });
-      const position = (banner.offsetHeight - bannerBg.offsetHeight) * 0.1;
-      parallaxTl
-        .fromTo(bannerBg, {y: 0}, {y: -position}).fromTo(bannerContent, {y: 0}, {y: position}, "<")
-        .fromTo(".banner-bg .circle", {y: 0,}, {y: position,}, "<");
+      if (banner && bannerBg) {
+        const position = (banner.offsetHeight - bannerBg.offsetHeight) * 0.1;
+        parallaxTl
+          .fromTo(bannerBg, {y: 0}, {y: -position}).fromTo(bannerContent, {y: 0}, {y: position}, "<")
+          .fromTo(".banner-bg .circle", {y: 0,}, {y: position,}, "<");
+      }
     });
     return () => ctx.revert();
   }, []);
+
   return (
     <main className="px-6 mx-auto">
       {/* Hero */}
@@ -287,6 +225,8 @@ const Home: React.FC<HomeProps> = ({ pageDetails: { data, id } }) => {
               }}
               // autoplay={{ delay: 3000 }}
               onBeforeInit={(swiper) => {
+                // @ts-ignore
+                // eslint-disable-next-line no-param-reassign
                 swiper.params.pagination.el = paginationRef.current;
               }}
               modules={[Pagination]}
@@ -460,11 +400,12 @@ const Home: React.FC<HomeProps> = ({ pageDetails: { data, id } }) => {
                       }}
                       autoplay={{delay: 3000}}
                       onBeforeInit={(swiper) => {
-                        swiper.params.pagination.el =
-                          testimonialPaginationRef.current;
+                        // @ts-ignore
+                        // eslint-disable-next-line no-param-reassign
+                        swiper.params.pagination.el = testimonialPaginationRef.current;
                       }}
                       className="testimonial-slider mx-auto max-w-[420px] cursor-pointer lg:max-w-[480px]">
-                      {testimonial.map((item, index) => (
+                      {data.testimonial.list.map((item: any, index: number) => (
                         <SwiperSlide
                           className="text-center"
                           key={"testimonial-" + index}>

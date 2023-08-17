@@ -2,7 +2,7 @@
 import config from "@/app/config/config.json";
 import { plainify } from "@/lib/utils/textConverter";
 import Head from "next/head";
-import { useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
 interface SiteContainerProps {
   title: string
@@ -22,7 +22,7 @@ const Base: React.FC<SiteContainerProps> = ({
   }) => {
   const { meta_image, meta_author, meta_description } = config.metadata;
   const { base_url } = config.site;
-  const router = useRouter();
+  const pathName = usePathname();
   return (
     <>
       <Head>
@@ -56,7 +56,7 @@ const Base: React.FC<SiteContainerProps> = ({
         <meta property="og:type" content="website" />
         <meta
           property="og:url"
-          content={`${base_url}/${router?.asPath}`}
+          content={`${base_url}/${pathName}`}
         />
         {/* twitter-title */}
         <meta

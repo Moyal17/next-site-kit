@@ -32,7 +32,7 @@ const Footer = () => {
               </p>
               <nav className="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
                 {menu.footer.map((menu) => (
-                  <Link href={menu.url} className="hover:text-primary hover:underline">
+                  <Link key={menu.name} href={menu.url} className="hover:text-primary hover:underline">
                     {menu.name}
                   </Link>
                 ))}
@@ -43,11 +43,11 @@ const Footer = () => {
                 Services
               </p>
               <nav className="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
-                <a className="hover:opacity-75" href> 1on1 Coaching </a>
-                <a className="hover:opacity-75" href> Company Review </a>
-                <a className="hover:opacity-75" href> Accounts Review </a>
-                <a className="hover:opacity-75" href> HR Consulting </a>
-                <a className="hover:opacity-75" href> SEO Optimisation </a>
+                <a className="hover:opacity-75" href="/"> 1on1 Coaching </a>
+                <a className="hover:opacity-75" href="/"> Company Review </a>
+                <a className="hover:opacity-75" href="/"> Accounts Review </a>
+                <a className="hover:opacity-75" href="/"> HR Consulting </a>
+                <a className="hover:opacity-75" href="/"> SEO Optimisation </a>
               </nav>
             </div>
             <div>
@@ -55,9 +55,9 @@ const Footer = () => {
                 Helpful Links
               </p>
               <nav className="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
-                <a className="hover:opacity-75" href> Contact </a>
-                <a className="hover:opacity-75" href> FAQs </a>
-                <a className="hover:opacity-75" href> Live Chat </a>
+                <a className="hover:opacity-75" href="/"> Contact </a>
+                <a className="hover:opacity-75" href="/"> FAQs </a>
+                <a className="hover:opacity-75" href="/"> Live Chat </a>
               </nav>
             </div>
             <div>
@@ -65,13 +65,13 @@ const Footer = () => {
                 Location & Contact
               </p>
               <nav className="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
-                <a className="hover:opacity-75" href> {markdownify(location)} </a>
+                <a className="hover:opacity-75" href="/"> {markdownify(location)} </a>
                 <Link href={`tel:${phone}`}>{phone}</Link>
               </nav>
             </div>
           </div>
         </div>
-        <p class="mt-8 text-xs text-gray-800">
+        <p className="mt-8 text-xs text-gray-800">
           © 2022 Comany Name
         </p>
       </div>

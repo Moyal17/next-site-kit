@@ -1,4 +1,4 @@
-import { gsap } from "@/lib/gsap";
+import {gsap} from "gsap";
 import { markdownify } from "@/lib/utils/textConverter";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
@@ -13,60 +13,36 @@ const Banner: React.FC<BannerProps> = ({ title }) => {
 
   //banner animation
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      const header = document.querySelector(".header");
-      const tl = gsap.timeline();
-      tl.fromTo(
-        ".banner-regular-title",
-        {
-          y: 20,
-        },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.5,
-        }
-      ).fromTo(
-        ".breadcrumb",
-        {
-          y: 20,
-        },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.5,
-        },
-        ">-.3"
-      );
-      //parallax banner
-      const parallaxTl = gsap.timeline({
-        ease: "none",
-        scrollTrigger: {
-          trigger: banner.current,
-          start: () => `top ${header.clientHeight}`,
-          end: () => `+=${banner.current.offsetHeight}`,
-          scrub: true,
-        },
-      });
+    if (banner && banner.current){
+      const ctx = gsap.context(() => {
 
-      const position = banner.current.offsetHeight * 0.15;
-      parallaxTl.fromTo(
-        ".banner-single .circle",
-        {
-          y: 0,
-        },
-        {
-          y: position,
-        },
-        "<"
-      );
-    }, banner);
+        const header = document.querySelector(".header") as Element;
+        const banner_offsetTop = document.querySelector<HTMLElement>('.banner.banner-single')?.offsetTop || 0;
 
-    return () => ctx.revert();
+        const tl = gsap.timeline();
+        tl.fromTo(".banner-regular-title", {y: 20,}, {y: 0, opacity: 1, duration: 0.5,})
+          .fromTo(".breadcrumb", {y: 20,}, {y: 0, opacity: 1, duration: 0.5,}, ">-.3");
+        //parallax banner
+        const parallaxTl = gsap.timeline({
+          ease: "none",
+          scrollTrigger: {
+            trigger: banner.current,
+            start: () => `top ${header.clientHeight || '115'}`,
+            end: () => `+=${banner_offsetTop}`,
+            scrub: true,
+          },
+        });
+
+        const position = banner_offsetTop * 0.15;
+        parallaxTl.fromTo(
+          ".banner-single .circle", { y: 0,}, {y: position,}, "<");
+      }, banner);
+      return () => ctx.revert();
+    }
   }, []);
 
   return (
-    <div className="banner banner-single " ref={banner}>
+    <div ref={banner} className="banner banner-single" >
       <div className="container-xl ">
         <div className="banner-wrapper relative text-center">
           {markdownify(title, "h1", "mb-8 banner-regular-title opacity-0")}

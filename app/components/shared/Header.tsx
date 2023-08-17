@@ -3,7 +3,7 @@ import Logo from "@/app/components/shared/Logo";
 import config from "@/app/config/config.json"
 import menu from "@/app/config/menu.json";
 import Link from "next/link";
-import {useRouter} from 'next/navigation';
+import {usePathname} from 'next/navigation';
 import React, {useEffect, useRef, useState} from "react";
 import {CgClose, CgMenu} from "react-icons/cg";
 
@@ -15,7 +15,7 @@ const Header = () => {
   const [sticky, setSticky] = useState(false);
   const headerRef = useRef(null);
   const [direction, setDirection] = useState(null);
-  const router = useRouter();
+  const pathname = usePathname()
 
   //sticky header
   useEffect(() => {
@@ -68,7 +68,7 @@ const Header = () => {
                         <li className="nav-dropdown-item" key={`children-${i}`}>
                           <Link
                             href={child.url}
-                            className={`nav-dropdown-link block transition-all ${router.asPath === child.url && "active"}`}>
+                            className={`nav-dropdown-link block transition-all ${pathname === child.url && "active"}`}>
                             {child.name}
                           </Link>
                         </li>
@@ -79,7 +79,7 @@ const Header = () => {
                   <li className="nav-item">
                     <Link
                       href={menu.url}
-                      className={`nav-link block ${router.asPath === menu.url && "active"}`}>
+                      className={`nav-link block ${pathname === menu.url && "active"}`}>
                       {menu.name}
                     </Link>
                   </li>
