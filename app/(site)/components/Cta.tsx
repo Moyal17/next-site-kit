@@ -4,10 +4,8 @@ import Link from "next/link";
 import Circle from "./Circle";
 import ImageFallback from "@/app/components/ImageFallback";
 
-function Cta() {
-  const { title, content, button, enable } = config.call_to_action;
-  if (!enable) return;
-
+const Cta = () => {
+  const { title, content, button } = config.call_to_action;
   return (
     <section className="cta section pt-0">
       <div className="container-xl">

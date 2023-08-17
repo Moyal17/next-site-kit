@@ -1,6 +1,6 @@
 ---
 banner:
-  title: "Andromeda is the most intuitive </br> way to prototype Designs"
+  title: "Andromeda is the most intuitive <br/> way to prototype Designs"
   image: /images/banner-app.png
   link:
     label: Get Premium Version
@@ -20,9 +20,9 @@ brands:
 
 #features
 features:
-  sub_title: SPECIAL FEATURES
-  title: Elements To </br> Get You Started
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi egestas </br> Werat viverra id et aliquet. vulputate egestas sollicitudin.
+  subtitle: SPECIAL FEATURES
+  title: Elements To <br/> Get You Started
+  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi egestas <br/> Werat viverra id et aliquet. vulputate egestas sollicitudin.
   list:
     - icon: 'lock' # feather icon: https://feathericons.com/
       title: Updated Security
@@ -47,7 +47,7 @@ features:
 intro:
   title: Built Exclusively For You
   subtitle: SHORT INTRO VIDEO
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi egestas </br> Werat viverra id et aliquet. vulputate egestas sollicitudin.
+  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi egestas <br/> Werat viverra id et aliquet. vulputate egestas sollicitudin.
   thumbnail: "/images/video-popup.jpg"
   video_id: dyZcRRWiuuw
 
@@ -69,7 +69,7 @@ speciality:
 testimonial:
   title: OUR TESTIMONIALS
   subtitle: Don’t Take Our Word For It
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi egestas </br> Werat viverra id et aliquet. vulputate egestas sollicitudin.
+  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi egestas <br/> Werat viverra id et aliquet. vulputate egestas sollicitudin.
   list:
     - author: David Cameron
       avatar: /images/user-img/01.jpg
