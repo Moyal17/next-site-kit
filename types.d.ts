@@ -7,7 +7,7 @@ type BlogPost = {
     avatar: string,
     draft: boolean,
     content: string
-    mdxContent?: any
+    contentHtml?: any
     description?: string
 }
 

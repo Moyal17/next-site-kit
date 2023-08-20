@@ -1,22 +1,11 @@
-import BlogList from '../../BlogPageContent';
+import {getPostData, getSortedPostsData} from "@/actions/posts";
+import ArticleContent from "@/app/(site)/blog/components/ArticleContent";
 
-
-export default async function CategoryRoute({ params }: { params: { category: string } }) {
-    const filter = params.category;
-    const { data = [] } = []; // await fetchPostsByCategory(filter);
-
-    //TODO: CREATE A COMPONENT FOR THIS
-    if (data.length === 0) return <div>Not Posts In this category</div>;
-
-    const { name, description } = data[0]?.attributes.category.data.attributes;
-
-    return (
-        <div>
-            <BlogList data={data} />
-        </div>
-    );
-}
-
-export async function generateStaticParams() {
-    return [];
+export default async function Article({ params }: {  params: { article: string } }) {
+    // Fetch data directly in a Server Component
+    const { article } = params;
+    const post: BlogPost = await getPostData(article);
+    const posts = getSortedPostsData();
+    // Forward fetched data to your Client Component
+    return <ArticleContent postDetails={post} uri={article} recentPosts={posts.slice(0, 3)} />
 }

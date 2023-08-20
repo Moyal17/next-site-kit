@@ -1,10 +1,6 @@
-import config from "@/app/config/config.json";
 import dateFormat from "@/lib/getFormattedDate";
 import readingTime from "@/lib/utils/readingTime";
 import { markdownify } from "@/lib/utils/textConverter";
-import shortcodes from "@/app/components/shortcodes";
-import { MDXRemote } from "next-mdx-remote";
-import Image from "next/image";
 import Cta from "@/app/components/Cta";
 import ImageFallback from "@/app/components/ImageFallback";
 import Post from "../components/Post";
@@ -15,9 +11,7 @@ interface ArticleContentProps {
   recentPosts: BlogPost[]
 }
 const ArticleContent: React.FC<ArticleContentProps> = ({ postDetails, uri, recentPosts }) => {
-  console.log('postDetails: \n', postDetails)
-  let { description, title, date, image, author, content, mdxContent } = postDetails;
-
+  let { description, title, date, image, author, content, contentHtml } = postDetails;
   return (
     <>
       <section className="section pt-0">
@@ -54,7 +48,7 @@ const ArticleContent: React.FC<ArticleContentProps> = ({ postDetails, uri, recen
                   </div>
                 </div>
                 <div className="content mt-16 mb-16 text-left">
-                  { content }
+                  <section dangerouslySetInnerHTML={{ __html: contentHtml }} />
                 </div>
               </div>
             </div>
