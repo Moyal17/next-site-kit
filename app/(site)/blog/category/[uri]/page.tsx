@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation"
-import CategoryPageContent from "@/app/(site)/blog/components/CategoryPageContent";
+import CategoryContent from "@/app/(site)/blog/category/[uri]/CategoryContent";
 import {getCategories, getCategoryDetails} from "@/actions/categories";
 import {getSortedPostsData} from "@/actions/posts";
 import config from "@/app/config/config.json";
@@ -14,7 +14,7 @@ export default async function Article({ params }: {  params: { uri: string } }) 
     const { pagination } = config.settings;
 
     // Forward fetched data to your Client Component
-    return <CategoryPageContent
+    return <CategoryContent
       categoryDetails={categoryDetails}
       uri={uri}
       pagination={pagination}

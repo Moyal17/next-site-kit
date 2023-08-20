@@ -63,14 +63,14 @@ const Banner: React.FC<BannerProps> = ({ title, disableRouteMap }) => {
             <ImageFallback
               priority={true}
               fill={true}
-              src="/images/vectors/single-banner-wave-1.svg"
+              src="https://github-assets-site.s3.eu-central-1.amazonaws.com/multi-page-site/vectors/single-banner-wave-1.svg"
               sizes="100vw"
               alt=""
             />
             <ImageFallback
               priority={true}
               fill={true}
-              src="/images/vectors/single-banner-wave-2.svg"
+              src="https://github-assets-site.s3.eu-central-1.amazonaws.com/multi-page-site/vectors/single-banner-wave-2.svg"
               sizes="100vw"
               alt=""
             />

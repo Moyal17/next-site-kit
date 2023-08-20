@@ -3,7 +3,7 @@
     "title": "Sensei Project Nextjs",
     "base_url": "/",
     "favicon": "/images/favicon.png",
-    "logo": "/images/sensei_logo.png",
+    "logo": "https://github-assets-site.s3.eu-central-1.amazonaws.com/multi-page-site/sensei_logo.png",
     "logo_width": "170",
     "logo_height": "52",
     "logo_text": "Sensei"

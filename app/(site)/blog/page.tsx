@@ -1,6 +1,6 @@
 import config from "@/app/config/config.json";
 import {getPageData} from "@/actions/pages";
-import BlogPageContent from './BlogPageContent'
+import BlogPageContent from './BlogContent'
 import {getSortedPostsData} from "@/actions/posts";
 
 export default async function Blog() {

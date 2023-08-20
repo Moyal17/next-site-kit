@@ -12,7 +12,7 @@ interface AboutPageContentProps {
   [key: string]: any
 }
 
-const AboutPageContent:React.FC<AboutPageContentProps> = ({ pageDetails }) => {
+const AboutContent:React.FC<AboutPageContentProps> = ({ pageDetails }) => {
   const { data: {title, about_us, works, mission, video, clients, our_member, our_office} } = pageDetails;
 
   return (
@@ -321,4 +321,4 @@ const AboutPageContent:React.FC<AboutPageContentProps> = ({ pageDetails }) => {
   );
 };
 
-export default AboutPageContent;
+export default AboutContent;

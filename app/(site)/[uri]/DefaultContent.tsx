@@ -3,7 +3,7 @@ interface DefaultPageContentProps {
   pageDetails: any,
   uri: string
 }
-const DefaultPageContent: React.FC<DefaultPageContentProps> = ({ pageDetails }) => {
+const DefaultContent: React.FC<DefaultPageContentProps> = ({ pageDetails }) => {
   const { title, contentHtml } = pageDetails;
   return (
     <section className="section pt-0">
@@ -17,4 +17,4 @@ const DefaultPageContent: React.FC<DefaultPageContentProps> = ({ pageDetails }) 
   );
 };
 
-export default DefaultPageContent;
+export default DefaultContent;

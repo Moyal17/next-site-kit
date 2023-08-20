@@ -1,5 +1,5 @@
 import {getPageData} from "@/actions/pages";
-import HomePage from './HomePageContent'
+import HomePage from './HomeContent'
 
 export default async function Home() {
   // Fetch data directly in a Server Component

@@ -1,5 +1,5 @@
 import {getPostData, getSortedPostsData} from "@/actions/posts";
-import ArticleContent from "@/app/(site)/blog/components/ArticleContent";
+import ArticleContent from "@/app/(site)/blog/[article]/ArticleContent";
 import {notFound} from "next/navigation";
 
 export default async function Article({ params }: {  params: { article: string } }) {

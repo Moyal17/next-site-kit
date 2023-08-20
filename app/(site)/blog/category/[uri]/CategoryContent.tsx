@@ -4,7 +4,7 @@ import {useSearchParams} from "next/navigation";
 import Pagination from "@/app/components/Pagination";
 import Banner from "@/app/components/Banner";
 import Cta from "@/app/components/Cta";
-import Post from "../components/Post";
+import Post from "../../components/Post";
 import { useEffect, useRef } from "react";
 
 interface CategoryPageContentProps {
@@ -16,7 +16,7 @@ interface CategoryPageContentProps {
 }
 
 // blog pagination
-const CategoryPageContent: React.FC<CategoryPageContentProps> = ({ posts, pagination, categoryDetails}) => {
+const CategoryContent: React.FC<CategoryPageContentProps> = ({ posts, pagination, categoryDetails}) => {
   const searchParams = useSearchParams()
   const index = searchParams.get('index') as string;
   const currentPage: number = parseInt(index) || 1;
@@ -61,4 +61,4 @@ const CategoryPageContent: React.FC<CategoryPageContentProps> = ({ posts, pagina
   );
 };
 
-export default CategoryPageContent;
+export default CategoryContent;

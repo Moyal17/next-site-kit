@@ -103,5 +103,4 @@ testimonial:
       avatar: https://github-assets-site.s3.eu-central-1.amazonaws.com/multi-page-site/user-img/08.jpg
       profession: CEO, Nexuspay
       content: Lorem ipsum dolor amet, conseetur adipiscing elit. Ornare quam porta arcu congue felis volutpat. Vitae lectudbfs pellentesque vitae dolor
-
 ---

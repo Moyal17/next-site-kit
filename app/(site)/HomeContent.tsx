@@ -50,7 +50,7 @@ interface HomeProps {
   pageDetails: any
 }
 
-const HomePageContent: React.FC<HomeProps> = ({ pageDetails }) => {
+const HomeContent: React.FC<HomeProps> = ({ pageDetails }) => {
   const paginationRef = useRef(null);
   const testimonialPaginationRef = useRef(null);
   const { data } = pageDetails;
@@ -456,4 +456,4 @@ const HomePageContent: React.FC<HomeProps> = ({ pageDetails }) => {
 }
 
 
-export default HomePageContent;
+export default HomeContent;

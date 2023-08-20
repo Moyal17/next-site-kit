@@ -83,10 +83,10 @@ our_office:
     - flag: https://github-assets-site.s3.eu-central-1.amazonaws.com/multi-page-site/about/flags/au.png
       name: Australia, Perth
       location: Flat 23 80 Anthony Circlet Port Guiseppe, TAS 2691
-    - flag:  https://github-assets-site.s3.eu-central-1.amazonaws.com/multi-page-site/about/flags/germany.png
+    - flag: https://github-assets-site.s3.eu-central-1.amazonaws.com/multi-page-site/about/flags/germany.png
       name: Berlin, Germany
       location: Jl Raya Dewi Sartika Ged Harapan Masa, Br Germeny
-    - flag:  https://github-assets-site.s3.eu-central-1.amazonaws.com/multi-page-site/about/flags/china.png
+    - flag: https://github-assets-site.s3.eu-central-1.amazonaws.com/multi-page-site/about/flags/china.png
       name: China, Wohan
       location: 1hao Wen Ti Huo Dong Zhong Xin 1ceng Jian Xing
 

@@ -1,5 +1,5 @@
 import {getPageData} from "@/actions/pages";
-import ContactPageContent from './ContactPageContent'
+import ContactPageContent from './ContactContent'
 
 
 export default async function Contact() {
