@@ -1,6 +1,6 @@
 ---
 banner:
-  title: "Andromeda is the most intuitive <br/> way to prototype Designs"
+  title: "Sensei Project is the best website<br/>Solution For You"
   image: https://github-assets-site.s3.eu-central-1.amazonaws.com/multi-page-site/banner-app.png
   link:
     label: Get Premium Version

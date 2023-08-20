@@ -1,12 +1,12 @@
 {
   "site": {
-    "title": "Andromeda Light Nextjs",
+    "title": "Sensei Project Nextjs",
     "base_url": "/",
     "favicon": "/images/favicon.png",
-    "logo": "https://stackoverflow.design/assets/img/logos/so/logo-stackoverflow.svg",
-    "logo_width": "240",
-    "logo_height": "50",
-    "logo_text": "Andromeda"
+    "logo": "/images/sensei_logo.png",
+    "logo_width": "170",
+    "logo_height": "52",
+    "logo_text": "Sensei"
   },
 
   "settings": {
@@ -37,15 +37,15 @@
   "metadata": {
     "meta_author": "Themefisher",
     "meta_image": "/images/og-image.png",
-    "meta_description": "Andromeda-light Nextjs Blog Template"
+    "meta_description": "Sensei Project Nextjs Blog"
   },
 
   "call_to_action": {
     "enable": true,
-    "title": "Get Andromeda Now",
+    "title": "Get Sensei Project Now",
     "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi egestas </br> Werat viverra id et aliquet. vulputate egestas sollicitudin.",
     "button": {
-      "label": "Download The Theme",
+      "label": "Download Sensei Project",
       "link": "https://themefisher.com/products/andromeda-light-nextjs"
     }
   },

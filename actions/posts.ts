@@ -51,7 +51,6 @@ export async function getPostData(id: string) {
         }
         return article
     } catch (e) {
-        console.error('error: ', e)
         return null
     }
 }

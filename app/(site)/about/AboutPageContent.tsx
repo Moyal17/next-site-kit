@@ -9,11 +9,7 @@ import Circle from "@/app/components/Circle";
 import Cta from "@/app/components/Cta";
 
 interface AboutPageContentProps {
-  pageDetails: {
-    data: {
-      [key: string]: any
-    }
-  }
+  [key: string]: any
 }
 
 const AboutPageContent:React.FC<AboutPageContentProps> = ({ pageDetails }) => {
@@ -23,7 +19,6 @@ const AboutPageContent:React.FC<AboutPageContentProps> = ({ pageDetails }) => {
     <>
       <section className="section pt-0">
         <Banner title={title} />
-        {/* About */}
         <div className="section container">
           <div className="row items-center justify-center">
             <div className="animate md:col-6 lg:col-5 md:order-2">
