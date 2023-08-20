@@ -11,6 +11,11 @@ type BlogPost = {
     description?: string
 }
 
+type BlogCategory = {
+    uri: string,
+    title:string,
+    description: string
+}
 
 type Response = {
     id: string,
