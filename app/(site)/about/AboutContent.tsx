@@ -1,7 +1,7 @@
 "use client"
-import { markdownify } from "@/lib/utils/textConverter";
-import { Autoplay } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
+import {markdownify} from "@/lib/utils/textConverter";
+import {Autoplay} from "swiper";
+import {Swiper, SwiperSlide} from "swiper/react";
 import ImageFallback from "@/app/components/ImageFallback";
 import VideoPopup from "@/app/components/VideoPopup";
 import Banner from "@/app/components/Banner";
@@ -12,13 +12,48 @@ interface AboutPageContentProps {
   [key: string]: any
 }
 
-const AboutContent:React.FC<AboutPageContentProps> = ({ pageDetails }) => {
-  const { data: {title, about_us, works, mission, video, clients, our_member, our_office} } = pageDetails;
+const circles = [
+  {
+    className: "top-4 left-4 z-[-1]",
+    width: 85,
+    height: 85
+  },
+  {
+    className: "top-20 right-10 z-[-1]",
+    width: 37,
+    height: 37,
+    fill: false,
+  },
+  {
+    className: "top-1/2 right-12 -z-[1]",
+    width: 24,
+    height: 24
+  },
+  {
+    className: "bottom-6 right-6 z-[-1]",
+    width: 85,
+    height: 85
+  },
+  {
+    className: "top-1/2 left-12 z-[-1]",
+    width: 20,
+    height: 20
+  },
+  {
+    className: "bottom-12 left-8 z-[1]",
+    width: 47,
+    height: 47,
+    fill: false
+  },
+]
+
+const AboutContent: React.FC<AboutPageContentProps> = ({pageDetails}) => {
+  const {data: {title, about_us, works, mission, video, clients, our_member, our_office}} = pageDetails;
 
   return (
     <>
       <section className="section pt-0">
-        <Banner title={title} />
+        <Banner title={title}/>
         <div className="section container">
           <div className="row items-center justify-center">
             <div className="animate md:col-6 lg:col-5 md:order-2">
@@ -30,38 +65,15 @@ const AboutContent:React.FC<AboutPageContentProps> = ({ pageDetails }) => {
                   height={487}
                   alt=""
                 />
-                <Circle
-                  className="top-4 left-4 z-[-1]"
-                  width={85}
-                  height={85}
-                />
-                <Circle
-                  width={37}
-                  height={37}
-                  fill={false}
-                  className="top-20 right-10 z-[-1]"
-                />
-                <Circle
-                  className="top-1/2 right-12 -z-[1]"
-                  width={24}
-                  height={24}
-                />
-                <Circle
-                  className="bottom-6 right-6 z-[-1]"
-                  width={85}
-                  height={85}
-                />
-                <Circle
-                  className="top-1/2 left-12 z-[-1]"
-                  width={20}
-                  height={20}
-                />
-                <Circle
-                  className="bottom-12 left-8 z-[1]"
-                  width={47}
-                  height={47}
-                  fill={false}
-                />
+                {circles.map((circle, i) => (
+                  <Circle
+                    key={`circle-${i}`}
+                    className={circle.className}
+                    width={circle.width}
+                    height={circle.height}
+                    fill={circle.fill || true}
+                  />
+                ))}
               </div>
             </div>
             <div className="animate md:col-6 lg:col-4 md:order-1">
@@ -229,7 +241,7 @@ const AboutContent:React.FC<AboutPageContentProps> = ({ pageDetails }) => {
               }}
               spaceBetween={20}
               modules={[Autoplay]}
-              autoplay={{ delay: 3000 }}
+              autoplay={{delay: 3000}}
             >
               {clients.brands.map((brand: string, index: number) => (
                 <SwiperSlide
@@ -316,7 +328,7 @@ const AboutContent:React.FC<AboutPageContentProps> = ({ pageDetails }) => {
           </div>
         </div>
       </section>
-      <Cta />
+      <Cta/>
     </>
   );
 };

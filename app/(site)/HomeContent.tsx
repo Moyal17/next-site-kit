@@ -1,13 +1,13 @@
 "use client"
-import { useEffect, useRef } from "react";
+import {useEffect, useRef} from "react";
 import Link from "next/link";
 import {gsap} from "gsap";
 import {Autoplay, Pagination} from "swiper";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {FiLock, FiWind, FiShield, FiLink} from 'react-icons/fi'
-import { TbQuote } from "react-icons/tb";
+import {TbQuote} from "react-icons/tb";
 import config from "@/app/config/config.json";
-import { markdownify } from "@/lib/utils/textConverter";
+import {markdownify} from "@/lib/utils/textConverter";
 import Circle from "../components/Circle";
 import ImageFallback from "@/app/components/ImageFallback";
 import Cta from "../components/Cta";
@@ -46,14 +46,72 @@ const featuresList = [
   }
 ]
 
+const circles = [
+  {
+    className: "circle left-[10%] top-12",
+    width: 32,
+    height: 32,
+    fill: false
+  },
+  {
+    className: "circle left-[2.5%] top-[29%]",
+    width: 85,
+    height: 85
+  },
+  {
+    className: "circle left-[22%] bottom-[48%]",
+    width: 20,
+    height: 20,
+  },
+  {
+    className: "circle left-[15%] bottom-[37%]",
+    width: 47,
+    height: 47,
+    fill: false,
+  },
+  {
+    className: "circle left-[6%] bottom-[13%]",
+    width: 62,
+    height: 62,
+    fill: false,
+  },
+  {
+    className: "circle right-[12%] top-[15%]",
+    width: 20,
+    height: 20,
+  },
+  {
+    className: "circle right-[2%] top-[30%]",
+    width: 73,
+    height: 73,
+    fill: false,
+  },
+  {
+    className: "circle right-[19%] top-[48%]",
+    width: 37,
+    height: 37,
+    fill: false,
+  },
+  {
+    className: "circle right-[33%] top-[54%]",
+    width: 20,
+    height: 20,
+  },
+  {
+    className: "circle right-[3%] bottom-[20%]",
+    width: 65,
+    height: 65,
+  }
+]
+
 interface HomeProps {
   pageDetails: any
 }
 
-const HomeContent: React.FC<HomeProps> = ({ pageDetails }) => {
+const HomeContent: React.FC<HomeProps> = ({pageDetails}) => {
   const paginationRef = useRef(null);
   const testimonialPaginationRef = useRef(null);
-  const { data } = pageDetails;
+  const {data} = pageDetails;
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -92,67 +150,21 @@ const HomeContent: React.FC<HomeProps> = ({ pageDetails }) => {
         <div className="container-xl">
           <div className="relative">
             <div className="bg-theme banner-bg col-12 absolute top-0 left-0">
-              <Circle
-                className="circle left-[10%] top-12"
-                width={32}
-                height={32}
-                fill={false}
-              />
-              <Circle
-                className="circle left-[2.5%] top-[29%]"
-                width={85}
-                height={85}
-              />
-              <Circle
-                className="circle left-[22%] bottom-[48%]"
-                width={20}
-                height={20}
-              />
-              <Circle
-                className="circle left-[15%] bottom-[37%]"
-                width={47}
-                height={47}
-                fill={false}
-              />
-              <Circle
-                className="circle left-[6%] bottom-[13%]"
-                width={62}
-                height={62}
-                fill={false}
-              />
-              <Circle
-                className="circle right-[12%] top-[15%]"
-                width={20}
-                height={20}
-              />
-              <Circle
-                className="circle right-[2%] top-[30%]"
-                width={73}
-                height={73}
-                fill={false}
-              />
-              <Circle
-                className="circle right-[19%] top-[48%]"
-                width={37}
-                height={37}
-                fill={false}
-              />
-              <Circle
-                className="circle right-[33%] top-[54%]"
-                width={20}
-                height={20}
-              />
-              <Circle
-                className="circle right-[3%] bottom-[20%]"
-                width={65}
-                height={65}
-              />
+              { circles.map((circle, i) => (
+                <Circle
+                  key={`circle-${i}`}
+                  className={circle.className}
+                  width={circle.width}
+                  height={circle.height}
+                  fill={circle.fill || true}
+                />
+              ))}
             </div>
             <div className="row overflow-hidden rounded-2xl">
               <div className="col-12">
                 <div className="row relative justify-center pb-10">
                   <div className="banner-content col-10 pt-20 pb-10 text-center">
-                    { markdownify(data.banner.title, "h1", "mb-8 banner-title opacity-0") }
+                    {markdownify(data.banner.title, "h1", "mb-8 banner-title opacity-0")}
                     <div className="banner-btn opacity-0">
                       <Link className="btn btn-primary" href={data.banner.link.href}>
                         {data.banner.link.label}
@@ -185,8 +197,10 @@ const HomeContent: React.FC<HomeProps> = ({ pageDetails }) => {
                   spaceBetween={20}
                   modules={[Autoplay]}
                   autoplay={{delay: 3000}}>
-                  { data.brands.map((brand: string, index : number) => (
-                    <SwiperSlide className=" h-20 cursor-pointer py-6 px-6 grayscale  transition hover:grayscale-0 lg:px-10" key={"brand-" + index}>
+                  {data.brands.map((brand: string, index: number) => (
+                    <SwiperSlide
+                      className=" h-20 cursor-pointer py-6 px-6 grayscale  transition hover:grayscale-0 lg:px-10"
+                      key={"brand-" + index}>
                       <div className="relative h-full">
                         <ImageFallback
                           className="object-contain"
@@ -209,9 +223,9 @@ const HomeContent: React.FC<HomeProps> = ({ pageDetails }) => {
       <section className="section">
         <div className="container text-center">
           <div className="animate">
-            { markdownify(data.features.subtitle, "p", "uppercase") }
-            { markdownify(data.features.title, "h2", "mt-4 section-title") }
-            { markdownify(data.features.description, "p", "mt-10") }
+            {markdownify(data.features.subtitle, "p", "uppercase")}
+            {markdownify(data.features.title, "h2", "mt-4 section-title")}
+            {markdownify(data.features.description, "p", "mt-10")}
           </div>
           <div className="animate from-right relative mt-10">
             <Swiper
@@ -265,9 +279,9 @@ const HomeContent: React.FC<HomeProps> = ({ pageDetails }) => {
           <div className="relative px-4 py-[70px]">
             <div className="text-center">
               <div className="animate">
-                { markdownify(data.intro.subtitle, "p", "uppercase") }
-                { markdownify(data.intro.title, "h2", "mt-4 section-title") }
-                { markdownify(data.intro.description, "p", "mt-10") }
+                {markdownify(data.intro.subtitle, "p", "uppercase")}
+                {markdownify(data.intro.title, "h2", "mt-4 section-title")}
+                {markdownify(data.intro.description, "p", "mt-10")}
               </div>
               <div className="mx-auto mt-10 h-full max-h-[394px] w-full max-w-[716px]">
                 <VideoPopup id={data.intro.video_id} thumbnail={data.intro.thumbnail}/>
@@ -344,9 +358,9 @@ const HomeContent: React.FC<HomeProps> = ({ pageDetails }) => {
               />
             </div>
             <div className="animate lg:col-5 lg:order-1">
-              { markdownify(data.speciality.primary.subtitle, "p", "uppercase") }
-              { markdownify(data.speciality.primary.title, "h2", "mt-4 section-title bar-left") }
-              { markdownify(data.speciality.primary.description, "p", "mt-10") }
+              {markdownify(data.speciality.primary.subtitle, "p", "uppercase")}
+              {markdownify(data.speciality.primary.title, "h2", "mt-4 section-title bar-left")}
+              {markdownify(data.speciality.primary.description, "p", "mt-10")}
             </div>
           </div>
           <div className="row items-center">
@@ -360,9 +374,9 @@ const HomeContent: React.FC<HomeProps> = ({ pageDetails }) => {
               />
             </div>
             <div className="animate lg:col-5">
-              { markdownify(data.speciality.secondary.subtitle, "p", "uppercase") }
-              { markdownify(data.speciality.secondary.title, "h2", "mt-4 section-title bar-left") }
-              { markdownify(data.speciality.secondary.description, "p", "mt-10") }
+              {markdownify(data.speciality.secondary.subtitle, "p", "uppercase")}
+              {markdownify(data.speciality.secondary.title, "h2", "mt-4 section-title bar-left")}
+              {markdownify(data.speciality.secondary.description, "p", "mt-10")}
             </div>
           </div>
         </div>
@@ -372,9 +386,9 @@ const HomeContent: React.FC<HomeProps> = ({ pageDetails }) => {
       <section className="section pt-0">
         <div className="container">
           <div className="animate text-center">
-            { markdownify(data.testimonial.subtitle, "p", "uppercase") }
-            { markdownify(data.testimonial.title, "h2", "mt-4 section-title") }
-            { markdownify(data.testimonial.description, "p", "mt-10") }
+            {markdownify(data.testimonial.subtitle, "p", "uppercase")}
+            {markdownify(data.testimonial.title, "h2", "mt-4 section-title")}
+            {markdownify(data.testimonial.description, "p", "mt-10")}
           </div>
           <div className="animate row mt-10 items-center justify-center">
             <div className="xl:col-11">
@@ -450,7 +464,7 @@ const HomeContent: React.FC<HomeProps> = ({ pageDetails }) => {
         </div>
       </section>
       {/* Cta */}
-      { config.call_to_action.enable && <Cta/> }
+      {config.call_to_action.enable && <Cta/>}
     </main>
   )
 }
