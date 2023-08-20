@@ -2,6 +2,13 @@ type BlogPost = {
     id: string,
     title: string,
     date: string,
+    author: any,
+    image: string,
+    avatar: string,
+    draft: boolean,
+    content: string
+    mdxContent?: any
+    description?: string
 }
 
 

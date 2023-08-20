@@ -1,3 +1,4 @@
+"use client"
 import {gsap} from "gsap";
 import { markdownify } from "@/lib/utils/textConverter";
 import Link from "next/link";

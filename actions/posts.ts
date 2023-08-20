@@ -1,12 +1,10 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import { remark } from 'remark'
-import html from 'remark-html'
-
-const postsDirectory = path.join(process.cwd(), 'staticData/blog_posts')
+import parseMDX from "@/lib/utils/mdxParser";
 
 export function getSortedPostsData() {
+    const postsDirectory = path.join(process.cwd(), 'staticData/blog_posts')
     // Get file names under /posts
     const fileNames = fs.readdirSync(postsDirectory);
     const allPostsData = fileNames.map((fileName) => {
@@ -19,11 +17,9 @@ export function getSortedPostsData() {
 
         // Use gray-matter to parse the post metadata section
         const matterResult = matter(fileContents);
-
+        const { data: { title, author, avatar, date, draft, image }, content} = matterResult;
         const blogPost: BlogPost = {
-            id,
-            title: matterResult.data.title,
-            date: matterResult.data.date,
+            id, title, author, avatar, date, draft, content, image
         }
         // Combine the data with the id
         return blogPost
@@ -33,25 +29,18 @@ export function getSortedPostsData() {
 }
 
 export async function getPostData(id: string) {
+    const postsDirectory = path.join(process.cwd(), 'staticData/blog_posts')
     const fullPath = path.join(postsDirectory, `${id}.md`);
     const fileContents = fs.readFileSync(fullPath, 'utf8');
 
     // Use gray-matter to parse the post metadata section
     const matterResult = matter(fileContents);
 
-    const processedContent = await remark()
-        .use(html)
-        .process(matterResult.content);
+    const mdxContent = await parseMDX(matterResult.content);
 
-    const contentHtml = processedContent.toString();
-
-    const blogPostWithHTML: BlogPost & { contentHtml: string } = {
-        id,
-        title: matterResult.data.title,
-        date: matterResult.data.date,
-        contentHtml,
+    const { data: { title, author, avatar, date, draft, image }, content} = matterResult;
+    const article: BlogPost = {
+        id, title, author, image, avatar, date, draft, content, mdxContent
     }
-
-    // Combine the data with the id
-    return blogPostWithHTML
+    return article
 }
