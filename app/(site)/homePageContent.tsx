@@ -1,17 +1,17 @@
 "use client"
-import {useEffect, useRef} from "react";
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import {gsap} from "gsap";
-import {FiLock, FiWind, FiShield, FiLink} from 'react-icons/fi'
 import {Autoplay, Pagination} from "swiper";
 import {Swiper, SwiperSlide} from "swiper/react";
+import {FiLock, FiWind, FiShield, FiLink} from 'react-icons/fi'
+import { TbQuote } from "react-icons/tb";
+import config from "@/app/config/config.json";
+import { markdownify } from "@/lib/utils/textConverter";
 import Circle from "../components/Circle";
 import ImageFallback from "@/app/components/ImageFallback";
 import Cta from "../components/Cta";
 import VideoPopup from "../components/VideoPopup";
-import { TbQuote } from "react-icons/tb";
-import {markdownify} from "@/lib/utils/textConverter";
-import config from "@/app/config/config.json";
 
 const featuresList = [
   {
@@ -62,7 +62,6 @@ const HomePageContent: React.FC<HomeProps> = ({ pageDetails }) => {
       const bannerContent = document.querySelector<HTMLElement>(".banner-content");
       const header = document.querySelector<HTMLElement>(".header");
       const tl = gsap.timeline();
-
       tl.fromTo(".banner-title", {y: 20, opacity: 0}, {y: 0, opacity: 1, duration: 0.5, delay: 0.5})
         .fromTo(".banner-btn", {y: 20, opacity: 0}, {y: 0, opacity: 1, duration: 0.5}, ">-0.4")
         .fromTo(".banner-img", {y: 20, opacity: 0,}, {y: 0, opacity: 1, duration: 0.5,}, ">-.5");

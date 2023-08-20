@@ -110,18 +110,12 @@ export default function Footer() {
         <div className="my-10 text-sm text-center text-gray-600">
           Copyright © {new Date().getFullYear()}. Made with ♥ by{" "}
           <a
-            href="https://web3templates.com/"
+            href="https://www.dormoyal.com/"
             target="_blank"
             rel="noopener noreferrer">
-            Web3Templates.
+            Dor Moyal.
           </a>{" "}
-          Illustrations from{" "}
-          <a
-            href="https://www.glazestock.com/"
-            target="_blank"
-            rel="noopener  noreferrer">
-            Glazestock
-          </a>
+          Dor Moyal
         </div>
       </Container>
       {/* Do not remove this */}

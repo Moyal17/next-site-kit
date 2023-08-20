@@ -7,9 +7,10 @@ import Circle from "./Circle";
 import ImageFallback from "@/app/components/ImageFallback";
 
 interface BannerProps {
-  title: string | number
+  title: string | number,
+  disableRouteMap?: boolean
 }
-const Banner: React.FC<BannerProps> = ({ title }) => {
+const Banner: React.FC<BannerProps> = ({ title, disableRouteMap }) => {
   const banner = useRef(null);
 
   //banner animation
@@ -47,15 +48,17 @@ const Banner: React.FC<BannerProps> = ({ title }) => {
       <div className="container-xl ">
         <div className="banner-wrapper relative text-center">
           {markdownify(title, "h1", "mb-8 banner-regular-title opacity-0")}
-          <ul className="breadcrumb flex items-center justify-center opacity-0">
-            <li>
-              <Link className="text-primary" href="/">
-                Home
-              </Link>
-            </li>
-            <li className="mx-2">/</li>
-            <li className="capitalize">{title}</li>
-          </ul>
+          { !disableRouteMap && (
+            <ul className="breadcrumb flex items-center justify-center opacity-0">
+              <li>
+                <Link className="text-primary" href="/">
+                  Home
+                </Link>
+              </li>
+              <li className="mx-2">/</li>
+              <li className="capitalize">{title}</li>
+            </ul>
+          )}
           <div className="bg-theme banner-bg col-12 absolute top-0 left-0 bg-theme-light before:hidden after:hidden">
             <ImageFallback
               priority={true}

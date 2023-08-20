@@ -30,23 +30,28 @@ export function getSortedPostsData() {
 }
 
 export async function getPostData(id: string) {
-    const postsDirectory = path.join(process.cwd(), 'staticData/blog_posts')
-    const fullPath = path.join(postsDirectory, `${id}.md`);
-    const fileContents = fs.readFileSync(fullPath, 'utf8');
+    try {
+        const postsDirectory = path.join(process.cwd(), 'staticData/blog_posts')
+        const fullPath = path.join(postsDirectory, `${id}.md`);
+        const fileContents = fs.readFileSync(fullPath, 'utf8');
 
-    // Use gray-matter to parse the post metadata section
-    const matterResult = matter(fileContents);
+        // Use gray-matter to parse the post metadata section
+        const matterResult = matter(fileContents);
 
-    const processedContent = await remark()
-      .use(html)
-      .process(matterResult.content);
+        const processedContent = await remark()
+          .use(html)
+          .process(matterResult.content);
 
-    const contentHtml = processedContent.toString();
+        const contentHtml = processedContent.toString();
 
 
-    const { data: { title, author, avatar, date, draft, image }, content} = matterResult;
-    const article: BlogPost = {
-        id, title, author, image, avatar, date, draft, content, contentHtml
+        const { data: { title, author, avatar, date, draft, image }, content} = matterResult;
+        const article: BlogPost = {
+            id, title, author, image, avatar, date, draft, content, contentHtml
+        }
+        return article
+    } catch (e) {
+        console.error('error: ', e)
+        return null
     }
-    return article
 }
