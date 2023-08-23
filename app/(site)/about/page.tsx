@@ -1,5 +1,9 @@
 import {getPageData} from "@/actions/pages";
 import AboutContent from './AboutContent'
+export const metadata = {
+  title: "Sensei About",
+  description: 'Read About Us',
+}
 
 export default async function About() {
   // Fetch data directly in a Server Component

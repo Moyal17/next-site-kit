@@ -3,6 +3,10 @@ import {getPageData} from "@/actions/pages";
 import BlogPageContent from './BlogContent'
 import {getSortedPostsData} from "@/actions/posts";
 
+export const metadata = {
+  title: "Sensei Blog",
+  description: 'Some articles we have made',
+}
 export default async function Blog() {
   // Fetch data directly in a Server Component
   // const aboutPage = await getPageData('contact')
