@@ -3,6 +3,7 @@ import path from 'path'
 import matter from 'gray-matter'
 import {remark} from "remark";
 import html from "remark-html";
+import parseMDX from "@/lib/utils/mdxParser";
 export async function getPageData(id: string) {
     try {
         const fullPath = path.join('staticData/pages', `${id}.md`);
@@ -13,8 +14,9 @@ export async function getPageData(id: string) {
           .use(html)
           .process(matterResult.content);
         const contentHtml = processedContent.toString();
-        const { data, data: { title, date, draft, image }, content} = matterResult;
-        return { id, title, image, date, content, contentHtml, data }
+        const mdxContent = await parseMDX(matterResult.content);
+        const { data, data: { title, date, image }, content} = matterResult;
+        return { id, title, image, date, content, contentHtml, data, mdxContent }
     } catch (e) {
         return null;
     }

@@ -89,46 +89,6 @@ Some text to show that the reference links can follow later.
 
 ---
 
-### Code and Syntax Highlighting
-
-#### HTML
-
-<Code language="html">
-{`<ul>
-  <li class="nav-item">
-    <a class="nav-link" href="/">Home</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="about/">About</a>
-  </li>
-</ul>`}
-</Code>
-
----
-
-#### CSS
-
-<Code language="css">
-{`img {
-  vertical-align: middle;
-  border: 0;
-  max-width: 100%;
-  height: auto;
-}`}
-</Code>
-
----
-
-#### JavaScript
-
-<Code language="javascript">
-{`window.addEventListener("load", (e) => {
-  document.querySelector(".preloader").style.display = "none";
-})`}
-</Code>
-
----
-
 ### Button
 
 <Button href="#" type="solid">Button</Button>
@@ -240,7 +200,7 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 
 ### Image
 
-![image](/images/flower.jpg)
+![image](https://github-assets-site.s3.eu-central-1.amazonaws.com/multi-page-site/blog/01.jpg)
 
 ---
 

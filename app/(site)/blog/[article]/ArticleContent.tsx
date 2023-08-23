@@ -1,9 +1,12 @@
+"use client"
 import dateFormat from "@/lib/getFormattedDate";
 import readingTime from "@/lib/utils/readingTime";
 import { markdownify } from "@/lib/utils/textConverter";
 import Cta from "@/app/components/Cta";
 import ImageFallback from "@/app/components/ImageFallback";
 import Post from "../components/Post";
+import {MDXRemote} from "next-mdx-remote";
+import shortcodes from "@/app/components/shortcodes";
 
 interface ArticleContentProps {
   postDetails: BlogPost,
@@ -11,7 +14,7 @@ interface ArticleContentProps {
   recentPosts: BlogPost[]
 }
 const ArticleContent: React.FC<ArticleContentProps> = ({ postDetails, uri, recentPosts }) => {
-  let { description, title, date, image, author, content, contentHtml } = postDetails;
+  let { mdxContent, title, date, image, author, content, contentHtml } = postDetails;
   return (
     <>
       <section className="section pt-0">
@@ -48,7 +51,7 @@ const ArticleContent: React.FC<ArticleContentProps> = ({ postDetails, uri, recen
                   </div>
                 </div>
                 <div className="content mt-16 mb-16 text-left">
-                  <section dangerouslySetInnerHTML={{ __html: contentHtml }} />
+                  <MDXRemote {...mdxContent} components={shortcodes} />
                 </div>
               </div>
             </div>

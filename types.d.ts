@@ -9,6 +9,7 @@ type BlogPost = {
     content: string
     contentHtml?: any
     description?: string
+    mdxContent?: any
 }
 
 type BlogCategory = {

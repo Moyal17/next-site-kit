@@ -3,6 +3,7 @@ import path from 'path'
 import matter from 'gray-matter'
 import { remark } from 'remark'
 import html from 'remark-html'
+import parseMDX from "@/lib/utils/mdxParser";
 
 export function getSortedPostsData() {
     const postsDirectory = path.join(process.cwd(), 'staticData/blog_posts')
@@ -43,11 +44,11 @@ export async function getPostData(id: string) {
           .process(matterResult.content);
 
         const contentHtml = processedContent.toString();
-
+        const mdxContent = await parseMDX(matterResult.content);
 
         const { data: { title, author, avatar, date, draft, image }, content} = matterResult;
         const article: BlogPost = {
-            id, title, author, image, avatar, date, draft, content, contentHtml
+            id, title, author, image, avatar, date, draft, content, contentHtml, mdxContent
         }
         return article
     } catch (e) {

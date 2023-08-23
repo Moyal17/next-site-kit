@@ -1,4 +1,5 @@
 import { serialize } from "next-mdx-remote/serialize";
+import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 
 // mdx content parser
