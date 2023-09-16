@@ -111,7 +111,7 @@ interface HomeProps {
 const HomeContent: React.FC<HomeProps> = ({pageDetails}) => {
   const paginationRef = useRef(null);
   const testimonialPaginationRef = useRef(null);
-  const {data} = pageDetails;
+  let data = pageDetails.data ? pageDetails.data : pageDetails;
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -164,17 +164,17 @@ const HomeContent: React.FC<HomeProps> = ({pageDetails}) => {
               <div className="col-12">
                 <div className="row relative justify-center pb-10">
                   <div className="banner-content col-10 pt-20 pb-10 text-center">
-                    {markdownify(data.banner.title, "h1", "mb-8 banner-title opacity-0")}
+                    {markdownify(pageDetails.banner.title, "h1", "mb-8 banner-title opacity-0")}
                     <div className="banner-btn opacity-0">
-                      <Link className="btn btn-primary" href={data.banner.link.href}>
-                        {data.banner.link.label}
+                      <Link className="btn btn-primary" href={pageDetails.banner.link.href}>
+                        {pageDetails.banner.link.label}
                       </Link>
                     </div>
                   </div>
                   <div className="col-10">
                     <ImageFallback
                       className="banner-img opacity-0"
-                      src={data.banner.image}
+                      src={pageDetails.banner.media.source}
                       width={1170}
                       height={666}
                       priority={true}
@@ -197,14 +197,14 @@ const HomeContent: React.FC<HomeProps> = ({pageDetails}) => {
                   spaceBetween={20}
                   modules={[Autoplay]}
                   autoplay={{delay: 3000}}>
-                  {data.brands.map((brand: string, index: number) => (
+                  {pageDetails.brands.items.map((item: any, index: number) => (
                     <SwiperSlide
                       className=" h-20 cursor-pointer py-6 px-6 grayscale  transition hover:grayscale-0 lg:px-10"
                       key={"brand-" + index}>
                       <div className="relative h-full">
                         <ImageFallback
                           className="object-contain"
-                          src={brand}
+                          src={item.media.source}
                           sizes="100vw"
                           alt=""
                           fill={true}
@@ -223,9 +223,9 @@ const HomeContent: React.FC<HomeProps> = ({pageDetails}) => {
       <section className="section">
         <div className="container text-center">
           <div className="animate">
-            {markdownify(data.features.subtitle, "p", "uppercase")}
-            {markdownify(data.features.title, "h2", "mt-4 section-title")}
-            {markdownify(data.features.description, "p", "mt-10")}
+            {markdownify(pageDetails.features.subtitle, "p", "uppercase")}
+            {markdownify(pageDetails.features.title, "h2", "mt-4 section-title")}
+            {markdownify(pageDetails.features.description, "p", "mt-10")}
           </div>
           <div className="animate from-right relative mt-10">
             <Swiper
@@ -279,12 +279,12 @@ const HomeContent: React.FC<HomeProps> = ({pageDetails}) => {
           <div className="relative px-4 py-[70px]">
             <div className="text-center">
               <div className="animate">
-                {markdownify(data.intro.subtitle, "p", "uppercase")}
-                {markdownify(data.intro.title, "h2", "mt-4 section-title")}
-                {markdownify(data.intro.description, "p", "mt-10")}
+                {markdownify(pageDetails.intro.subtitle, "p", "uppercase")}
+                {markdownify(pageDetails.intro.title, "h2", "mt-4 section-title")}
+                {markdownify(pageDetails.intro.description, "p", "mt-10")}
               </div>
               <div className="mx-auto mt-10 h-full max-h-[394px] w-full max-w-[716px]">
-                <VideoPopup id={data.intro.video_id} thumbnail={data.intro.thumbnail}/>
+                <VideoPopup id={pageDetails.intro.media.source} thumbnail={pageDetails.intro.media.thumbnail}/>
               </div>
             </div>
             <div className="bg-theme absolute top-0 left-0 w-full">
@@ -351,32 +351,32 @@ const HomeContent: React.FC<HomeProps> = ({pageDetails}) => {
             <div className="animate lg:col-6 lg:order-2">
               <ImageFallback
                 className="mx-auto"
-                src={data.speciality.primary.image}
+                src={pageDetails.speciality.items[0].media.source}
                 width={575}
                 height={511}
                 alt="primary speciality"
               />
             </div>
             <div className="animate lg:col-5 lg:order-1">
-              {markdownify(data.speciality.primary.subtitle, "p", "uppercase")}
-              {markdownify(data.speciality.primary.title, "h2", "mt-4 section-title bar-left")}
-              {markdownify(data.speciality.primary.description, "p", "mt-10")}
+              {markdownify(pageDetails.speciality.items[0].subtitle, "p", "uppercase")}
+              {markdownify(pageDetails.speciality.items[0].title, "h2", "mt-4 section-title bar-left")}
+              {markdownify(pageDetails.speciality.items[0].description, "p", "mt-10")}
             </div>
           </div>
           <div className="row items-center">
             <div className="animate lg:col-6">
               <ImageFallback
                 className="mx-auto"
-                src={data.speciality.secondary.image}
+                src={pageDetails.speciality.items[1].media.source}
                 width={575}
                 height={511}
                 alt="secondary speciality"
               />
             </div>
             <div className="animate lg:col-5">
-              {markdownify(data.speciality.secondary.subtitle, "p", "uppercase")}
-              {markdownify(data.speciality.secondary.title, "h2", "mt-4 section-title bar-left")}
-              {markdownify(data.speciality.secondary.description, "p", "mt-10")}
+              {markdownify(pageDetails.speciality.items[1].subtitle, "p", "uppercase")}
+              {markdownify(pageDetails.speciality.items[1].title, "h2", "mt-4 section-title bar-left")}
+              {markdownify(pageDetails.speciality.items[1].description, "p", "mt-10")}
             </div>
           </div>
         </div>
@@ -386,9 +386,9 @@ const HomeContent: React.FC<HomeProps> = ({pageDetails}) => {
       <section className="section pt-0">
         <div className="container">
           <div className="animate text-center">
-            {markdownify(data.testimonial.subtitle, "p", "uppercase")}
-            {markdownify(data.testimonial.title, "h2", "mt-4 section-title")}
-            {markdownify(data.testimonial.description, "p", "mt-10")}
+            {markdownify(pageDetails.testimonial.subtitle, "p", "uppercase")}
+            {markdownify(pageDetails.testimonial.title, "h2", "mt-4 section-title")}
+            {markdownify(pageDetails.testimonial.description, "p", "mt-10")}
           </div>
           <div className="animate row mt-10 items-center justify-center">
             <div className="xl:col-11">
@@ -418,7 +418,7 @@ const HomeContent: React.FC<HomeProps> = ({pageDetails}) => {
                         swiper.params.pagination.el = testimonialPaginationRef.current;
                       }}
                       className="testimonial-slider mx-auto max-w-[420px] cursor-pointer lg:max-w-[480px]">
-                      {data.testimonial.list.map((item: any, index: number) => (
+                      {pageDetails.testimonial.items.map((item: any, index: number) => (
                         <SwiperSlide
                           className="text-center"
                           key={"testimonial-" + index}>
@@ -429,7 +429,7 @@ const HomeContent: React.FC<HomeProps> = ({pageDetails}) => {
                               className="mt-7 inline-block rounded-md bg-body p-7 shadow-[0_10px_50px_rgba(0,0,0,.08)] md:mt-5 lg:mt-8 xl:mt-5">
                               <ImageFallback
                                 className="mx-auto rounded-full"
-                                src={item.avatar}
+                                src={item.media.source}
                                 width={90}
                                 height={90}
                                 priority={true}

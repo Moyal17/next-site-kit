@@ -54,7 +54,6 @@ clients:
     - https://github-assets-site.s3.eu-central-1.amazonaws.com/multi-page-site/brands/05-colored.png
     - https://github-assets-site.s3.eu-central-1.amazonaws.com/multi-page-site/brands/06-colored.png
 
-
 ## members
 our_member:
   subtitle: OUR MEMBERS
